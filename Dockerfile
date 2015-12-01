@@ -8,47 +8,19 @@ ENV BUILD_USER_GROUP users
 RUN unlink /etc/localtime
 RUN ln -s /usr/share/zoneinfo/America/New_York /etc/localtime
 
-# Install maven
-# REMOVE THIS
-#ENV MAVEN_VERSION 3.2.1
-#RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
-#  && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
-#  && ln -s /usr/share/maven/bin/mvn /usr/bin/mvn
-#ENV MAVEN_HOME /usr/share/maven
-
 # Install yum packages required for build node
 COPY yum-packages.list /tmp/yum.packages.list
 RUN chmod +r /tmp/yum.packages.list
 RUN yum install -y -q `cat /tmp/yum.packages.list`
 
-# REMOVE THIS (?)
-# Install jboss
-#RUN wget http://sourceforge.net/projects/jboss/files/JBoss/JBoss-5.1.0.GA/jboss-5.1.0.GA.zip/download -O /tmp/jboss-5.1.0.GA.zip
-#RUN unzip -q /tmp/jboss-5.1.0.GA.zip -d /usr/local
-#RUN rm -f /tmp/jboss-5.1.0.GA.zip
-
-# REMOVE THIS
-# Install Compass
-#RUN gem install json_pure
-#RUN gem update --system
-#RUN gem install compass
-
 # Install NodeJS
-curl --silent --location https://rpm.nodesource.com/setup | bash -
-yum install -y nodejs
+RUN wget http://nodejs.org/dist/v5.1.0/node-v5.1.0-linux-x64.tar.gz 
+RUN tar --strip-components 1 -xzvf node-v* -C /usr/local
 
 # Update node and npm
-#RUN RUN npm install -g npm@latest-2
-RUN npm install -g
-
-# REMOVE THIS?
-#RUN npm install -g bower
-
+#RUN npm install -g npm
 RUN npm install -g grunt
 RUN npm install -g grunt-cli
-
-# REMOVE THIS?
-#RUN npm install -g phantomjs
 
 # We have to use this fixed version otherwise we get fatal error: socket hang up errors
 RUN npm install -g grunt-connect-proxy@0.1.10
