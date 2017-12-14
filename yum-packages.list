@@ -1,7 +1,4 @@
-ruby
 make
-ruby-devel
-rubygems
 GraphicsMagick
 cairo
 cairo-devel
