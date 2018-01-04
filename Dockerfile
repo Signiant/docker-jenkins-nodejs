@@ -22,7 +22,7 @@ RUN npm version && npm install -g npm@$NPM_VERSION && npm version \
   && npm install -g grunt grunt-cli n whitesource
 
 # Install the AWS CLI - used by some build processes
-RUN pip install awscli
+RUN pip install awscli maestroops slackclient
 
 # Make sure anything/everything we put in the build user's home dir is owned correctly
 RUN chown -R $BUILD_USER:$BUILD_USER_GROUP /home/$BUILD_USER
