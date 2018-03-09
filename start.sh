@@ -1,7 +1,6 @@
 #!/bin/bash -e
 
 echo "Running build script"
-su - bldmgr
 whoami
 node_version=$(grep "FROM node" app/Dockerfile | sed "s/.*node://g")
 re='^[0-9]+'
