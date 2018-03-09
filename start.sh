@@ -2,6 +2,8 @@
 
 echo "Running build script"
 whoami
+sudo chown bldmgr:users ~/.npmrc
+sudo chmod 777 ~/.npmrc 
 node_version=$(grep "FROM node" app/Dockerfile | sed "s/.*node://g")
 re='^[0-9]+'
 if ! [[ $node_version =~ $re ]]; then
