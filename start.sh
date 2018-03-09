@@ -1,6 +1,8 @@
-#!/bin/bash
+#!/bin/bash -e
 whoami
 echo "Running build script"
+cat /root/.npmrc
+ls -la /root
 
 node_version=$(grep "FROM node" app/Dockerfile | sed "s/.*node://g")
 re='^[0-9]+'
@@ -17,4 +19,4 @@ cd ./app
 echo "Installing all npm packages and running grunt tasks"
 npm install
 grunt
-return -1
+exit -1
