@@ -1,9 +1,8 @@
 #!/bin/bash -e
-whoami
-echo "Running build script"
-cat /root/.npmrc
-ls -la /root
 
+echo "Running build script"
+su - bldmgr
+whoami
 node_version=$(grep "FROM node" app/Dockerfile | sed "s/.*node://g")
 re='^[0-9]+'
 if ! [[ $node_version =~ $re ]]; then
