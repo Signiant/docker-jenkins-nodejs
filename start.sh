@@ -1,5 +1,5 @@
 #!/bin/bash
-
+whoami
 echo "Running build script"
 
 node_version=$(grep "FROM node" app/Dockerfile | sed "s/.*node://g")
@@ -17,3 +17,4 @@ cd ./app
 echo "Installing all npm packages and running grunt tasks"
 npm install
 grunt
+return -1
