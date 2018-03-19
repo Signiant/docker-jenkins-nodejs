@@ -2,7 +2,7 @@
 
 echo "Running build script as user:"
 whoami
-ls ~/
+ls -la ~/
 sudo chown bldmgr:users ~/.npmrc
 sudo chmod 777 ~/.npmrc
 node_version=$(grep "FROM node" app/Dockerfile | sed "s/.*node://g")
@@ -13,8 +13,7 @@ if ! [[ $node_version =~ $re ]]; then
 	 node_version="stable"
 fi
 sudo n $node_version
-cat ~/.npmrc
-
+cp ~/.npmrc ./app/.npmrc
 cd ./app
 #npm install --production
 #WHITESOURCE PLACEHOLDER
