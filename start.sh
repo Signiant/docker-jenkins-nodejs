@@ -1,9 +1,10 @@
 #!/bin/bash -e
 
-echo "Running build script"
+echo "Running build script as user:"
 whoami
+ls ~/
 sudo chown bldmgr:users ~/.npmrc
-sudo chmod 777 ~/.npmrc 
+sudo chmod 777 ~/.npmrc
 node_version=$(grep "FROM node" app/Dockerfile | sed "s/.*node://g")
 re='^[0-9]+'
 if ! [[ $node_version =~ $re ]]; then
@@ -12,6 +13,7 @@ if ! [[ $node_version =~ $re ]]; then
 	 node_version="stable"
 fi
 sudo n $node_version
+cat ~/.npmrc
 
 cd ./app
 #npm install --production
