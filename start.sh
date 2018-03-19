@@ -11,9 +11,11 @@ if ! [[ $node_version =~ $re ]]; then
 	 node_version="stable"
 fi
 sudo n $node_version
+
 cd ./app
 #npm install --production
 #WHITESOURCE PLACEHOLDER
 echo "Installing all npm packages and running grunt tasks"
+npm config set unsafe-perm true
 npm install
 grunt
