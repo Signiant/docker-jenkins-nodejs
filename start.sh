@@ -20,4 +20,3 @@ cd ./app
 echo "Installing all npm packages and running grunt tasks"
 npm install
 grunt
-exit -1
