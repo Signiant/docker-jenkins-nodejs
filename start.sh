@@ -11,7 +11,6 @@ if ! [[ $node_version =~ $re ]]; then
 	 node_version="stable"
 fi
 sudo n $node_version
-mkdir /app
 cp -R /app_files/* /app/
 cd /app
 #npm install --production
