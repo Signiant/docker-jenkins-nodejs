@@ -4,6 +4,7 @@ cairo
 cairo-devel
 cairomm-devel
 libjpeg-turbo-devel
+openssl
 pango
 pango-devel
 pangomm
