@@ -19,7 +19,7 @@ RUN chmod +r /tmp/yum.packages.list \
 ENV NPM_VERSION 5
 
 RUN npm version && npm install -g npm@$NPM_VERSION && npm version \
-  && npm install -g grunt grunt-cli n whitesource
+  && npm install -g grunt grunt-cli n whitesource gatsby-cli
 
 # Install the AWS CLI - used by some build processes
 RUN pip install awscli maestroops slackclient
