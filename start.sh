@@ -74,5 +74,5 @@ else
 	echo "Downloading jenkins slave from $JENKINS_URL"
 	wget -P / http://$JENKINS_URL/jnlpJars/slave.jar
 
-	exec java $JAVA_OPTS $JNLP_PROTOCOL_OPTS -cp /slave.jar hudson.remoting.jnlp.Main -headless $TUNNEL $URL $WORKDIR $OPT_JENKINS_SECRET $OPT_JENKINS_AGENT_NAME "$@"
+	exec java $JAVA_OPTS $JNLP_PROTOCOL_OPTS -cp ./slave.jar hudson.remoting.jnlp.Main -headless $TUNNEL $URL $WORKDIR $OPT_JENKINS_SECRET $OPT_JENKINS_AGENT_NAME "$@"
 fi
