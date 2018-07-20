@@ -1,0 +1,13 @@
+graphicsmagick
+libcairo2
+libcairo-dev
+libcairo2-dev
+libcairomm-1.0-dev
+libjpeg62-turbo-dev
+libpango1.0-0
+libpango1.0-dev
+libpangomm-1.4-1v5
+libpangomm-1.4-dev
+libgif-dev
+fonts-liberation
+libpng-dev
