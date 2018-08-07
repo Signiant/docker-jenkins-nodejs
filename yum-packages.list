@@ -13,3 +13,7 @@ giflib-devel
 liberation-sans-fonts.noarch
 libpng-devel
 unzip
+rpm-build
+alien
+xz
+fakeroot
