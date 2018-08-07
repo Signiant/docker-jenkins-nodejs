@@ -24,6 +24,9 @@ RUN npm version && npm install -g npm@$NPM_VERSION && npm version \
 # Install the AWS CLI - used by some build processes
 RUN pip install awscli maestroops slackclient
 
+#install alien and dependencies to convert rpm to deb
+RUN yum -y install alien xz fakeroot
+
 # Make sure anything/everything we put in the build user's home dir is owned correctly
 RUN chown -R $BUILD_USER:$BUILD_USER_GROUP /home/$BUILD_USER
 
