@@ -17,9 +17,10 @@ RUN chmod +r /tmp/yum.packages.list \
 # - We have to use fixed grunt-connect-proxy version otherwise we get fatal error: socket hang up errors
 
 ENV NPM_VERSION "6.5.0"
-RUN npm version && npm install -g npm@$NPM_VERSION
-RUN npm version \
-  && npm install -g grunt grunt-cli n whitesource gatsby-cli
+
+RUN npm version && npm install -g n && n stable
+RUN npm install -g npm@$NPM_VERSION && npm version \
+  && npm install -g grunt grunt-cli whitesource gatsby-cli
 
 # Install the AWS CLI - used by some build processes
 RUN pip install awscli maestroops slackclient
